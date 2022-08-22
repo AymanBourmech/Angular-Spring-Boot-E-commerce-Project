@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white shadow sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand text-dark ms-5" routerLink="/navbar/home">
+      <i class="fa-solid fa-basket-shopping me-2"></i>Application E-commerce</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <a class="nav-link text-dark home" routerLink="/navbar/home"
+        ><i class="fa fa-house me-2"></i>Acceuil</a
+      >
+      <a class="nav-link text-dark home" routerLink="/navbar/listarticles"
+        ><i class="fa fa-store me-2"></i> Nos Articles</a
+      >
+      <a class="nav-link text-dark home" routerLink="/navbar/listcategories">
+        <i class="fa-solid fa-angle-down me-2"></i>Categories</a
+      >
+
+      <a class="nav-link text-dark home" routerLink="/navbar/listscategories"
+        ><i class="fa-solid fa-angles-down me-2"></i>SousCategories</a
+      >
+    </div>
+    <div class="navbar-nav">
+      <app-cart-status></app-cart-status>
+    </div>
+    <ul class="navbar-nav">
+      <li>
+        <a class="nav-link text-white fs-6">
+          Welcome&nbsp;:&nbsp;{{ storage.getUser().username }}
+        </a>
+      </li>
+
+      <li>
+        <button class="btn me-4" (click)="handleLogout()">
+          <i class="fa-solid fa-arrow-right-from-bracket fs-5 text-danger"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

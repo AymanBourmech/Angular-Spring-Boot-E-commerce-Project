@@ -1,0 +1,6 @@
+.card {
+  border: 2px rgba(167, 166, 166, 0.425) solid !important;
+}
+.back {
+  background-image: linear-gradient(#eeeaea, rgb(241, 240, 240));
+}

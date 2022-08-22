@@ -1,0 +1,9 @@
+<li class="nav-item" *ngIf="storage.getUser().roles == 'ROLE_USER'">
+  <a
+    routerLink="/navbar/cart-details"
+    class="btn border pe-3 ps-3 pt-4 pb-4 me-5 text-center colorBasket"
+  >
+    <i class="fas fa-shopping-cart icon"></i>
+    <span class="badge text-danger">{{ totalQuantity }}</span>
+  </a>
+</li>

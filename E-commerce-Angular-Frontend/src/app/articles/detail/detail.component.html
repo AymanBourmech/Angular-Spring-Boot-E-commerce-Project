@@ -1,0 +1,26 @@
+<form [formGroup]="imgForm">
+  <div class="form-group">
+    <div *ngIf="imageartpetitf != null">
+      <div
+        class="card mt-4 shadow bg-body rounded mx-auto"
+        style="width: 19rem"
+      >
+        <img
+          src="../../../assets/{{ imageartpetitf }}"
+          class="card-img-top"
+          width="120"
+          height="250"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="form-group text-center mt-4">
+    <button
+      type="button"
+      class="btn btn-outline-danger ml-1 p-3"
+      [mat-dialog-close]
+    >
+      <i class="fa fa-close"></i> Close
+    </button>
+  </div>
+</form>

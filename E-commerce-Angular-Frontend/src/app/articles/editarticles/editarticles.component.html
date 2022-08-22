@@ -1,0 +1,176 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmitForm()">
+    <div class="form-group">
+      <label for="reference" class="fs-5 mt-3">Référence:</label>
+
+      <input
+        type="text"
+        id="reference"
+        name="reference"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="reference"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="designation" class="fs-5 mt-3">Désignation:</label>
+      <input
+        type="text"
+        id="designation"
+        name="designation"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="designation"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="prixAchat" class="fs-5 mt-3">Prix d'achat:</label>
+      <input
+        type="text"
+        id="prixAchat"
+        name="prixAchat"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="prixAchat"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="prixVente" class="fs-5 mt-3">Prix de vente:</label>
+      <input
+        type="text"
+        id="prixVente"
+        name="prixVente"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="prixVente"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="marque" class="fs-5 mt-3">Marque:</label>
+      <input
+        type="text"
+        id="marque"
+        name="marque"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="marque"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="qtestock" class="fs-5 mt-3">Qte en stock:</label>
+      <input
+        type="text"
+        id="qtestock"
+        name="qtestock"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="qtestock"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="caracteristiques" class="fs-5 mt-3">Caractéristiques:</label>
+      <input
+        type="text"
+        id="caracteristiques"
+        name="caracteristiques"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="caracteristiques"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        style="display: none"
+        type="file"
+        class="mb-4 p-3"
+        (change)="onFileChanged($event)"
+        #fileInput
+      />
+      <button
+        type="button"
+        (click)="fileInput.click()"
+        class="btn btn-success mb-4 p-3"
+      >
+        Select File <i class="fa fa-upload ms-2"></i>
+      </button>
+      <div>
+        <p class="fw-bold fs-6">
+          <span class="text-decoration-underline">Ancienne Image :</span
+          >&nbsp;&nbsp; {{ imageartpetitf }}
+        </p>
+        <div *ngIf="imageartpetitf != null">
+          <img
+            src="../assets/{{ imageartpetitf }}"
+            width="50"
+            height="50"
+            class="mb-2"
+          />
+        </div>
+      </div>
+      <input
+        type="text"
+        readonly
+        class="form-control mb-4 p-3"
+        id="imageartpetitf"
+        name="imageartpetitf"
+        formControlName="imageartpetitf"
+        [(ngModel)]="nouvarticle.imageartpetitf"
+      />
+
+      <div *ngIf="nouvarticle.imageartpetitf != null">
+        <img
+          src="../assets/{{ nouvarticle.imageartpetitf }}"
+          width="50"
+          height="50"
+          class="mb-3"
+        />
+      </div>
+    </div>
+
+    <table class="mb-5">
+      <tr>
+        <td>
+          <div class="form-group me-5">
+            <label for="category" class="fs-5">Categories:</label>
+            <select
+              name="category"
+              class="form-control form-select mt-3 p-3"
+              id="category"
+              (change)="changeSuit($event)"
+            >
+              <option *ngFor="let d of categoriesID" value="{{ d.id }}">
+                {{ d.nomcategorie }}
+              </option>
+            </select>
+          </div>
+        </td>
+        <td>
+          <div class="form-group ms-5">
+            <label for="scategory" class="fs-5">Souscategories:</label>
+            <select
+              name="scategory"
+              class="form-control form-select mt-3 p-3"
+              id="scategory"
+            >
+              <option *ngFor="let sd of scategoriesID" value="{{ sd.id }}">
+                {{ sd.nomscategorie }}
+              </option>
+            </select>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark me-3 p-3">
+        Enregistrer <i class="fa fa-database ms-2"></i>
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-dark ml-1 p-3"
+        [mat-dialog-close]
+      >
+        <i class="fa fa-close"></i> Close
+      </button>
+    </div>
+  </form>
+</div>

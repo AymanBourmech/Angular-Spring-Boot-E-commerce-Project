@@ -1,0 +1,84 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <form [formGroup]="ScategorieForm" (ngSubmit)="onSubmitForm()">
+    <div class="form-group">
+      <label for="nomscategorie" class="fs-5 mt-3">Nom de la Scategorie</label>
+      <input
+        type="text"
+        id="nomscategorie"
+        class="form-control mb-4 p-3 mt-4"
+        formControlName="nomscategorie"
+        [(ngModel)]="Scat.nomscategorie"
+      />
+      <div
+        *ngIf="
+          nomscategorie?.invalid &&
+          (nomscategorie?.dirty || nomscategorie?.touched)
+        "
+        class="alert alert-danger mt-1"
+      >
+        <div *ngIf="nomscategorie?.errors?.required">Champs obligatoire</div>
+
+        <div *ngIf="nomscategorie?.errors?.minlength">
+          Le champs doit contenir au moins 2 caractères
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        style="display: none"
+        type="file"
+        class="mb-4 p-3"
+        (change)="onFileChanged($event)"
+        #fileInput
+      />
+      <button
+        type="button"
+        (click)="fileInput.click()"
+        class="btn btn-success mb-4 p-3"
+      >
+        Select File <i class="fa fa-upload ms-2"></i>
+      </button>
+
+      <input
+        type="text"
+        readonly
+        class="form-control mb-4 p-3"
+        id="imagescategorie"
+        name="imagescategorie"
+        formControlName="imagescategorie"
+        [(ngModel)]="Scat.imagescategorie"
+      />
+      <div
+        *ngIf="
+          imagescategorie?.invalid &&
+          (imagescategorie?.dirty || imagescategorie?.touched)
+        "
+        class="alert alert-danger mt-1"
+      >
+        <div *ngIf="imagescategorie?.errors?.required">Champs obligatoire</div>
+      </div>
+      <div *ngIf="Scat.imagescategorie != null">
+        <img
+          src="../assets/{{ Scat.imagescategorie }}"
+          width="120"
+          height="50"
+          class="mb-3"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark me-3 p-3">
+        Enregistrer <i class="fa fa-database ms-2"></i>
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-dark ml-1 p-3"
+        [mat-dialog-close]
+      >
+        <i class="fa fa-close"></i> Close
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+nav {
+  height: 100px;
+}
+.home {
+  font-size: 17px;
+  padding: 25px !important;
+  margin-left: 56px !important;
+  border-bottom: none;
+}
+.home:hover {
+  background-color: #dbdbdb;
+  border-bottom: 4px solid rgb(245, 136, 96);
+}
+.navbar {
+  background-color: #62abf3 !important;
+}
+.deconnexion {
+  margin-right: 60px;
+  border-radius: 15px;
+}
+.lienDec {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
